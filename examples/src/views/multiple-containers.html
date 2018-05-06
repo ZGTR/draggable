@@ -8,9 +8,9 @@
 
 {% set ViewAttr = {
   id: 'MultipleContainers',
-  parent: 'Sortable',
+  parent: 'Story Builder',
   child: 'Multiple containers',
-  subheading: 'Sort elements across multiple containers. Each container can maintain its own set of rules.'
+  subheading: 'Create your own story.'
 } %}
 
 {% block PageId %}{{ ViewAttr.id }}{% endblock %}
@@ -20,10 +20,10 @@
 {% endblock %}
 
 {% block sidebar %}
-  {{ Sidebar.render(ViewAttr, DataPages) }}
+  <!-- {{ Sidebar.render(ViewAttr, DataPages) }} -->
 {% endblock %}
 
 {% block main %}
-  {{ PageHeader.render(ViewAttr) }}
+  <!-- {{ PageHeader.render(ViewAttr) }} -->
   {{ MultipleContainers.render(ViewAttr.id) }}
 {% endblock %}
