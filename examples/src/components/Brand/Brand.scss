@@ -6,6 +6,13 @@
 @import 'keyframes';
 @import 'props';
 
+.BrandLogoText
+{
+  font-size: get-type-scale(brand);
+  font-weight: 100000;
+  color: get-color(brand, yellow);
+}
+
 .Brand {
   cursor: get-cursor(rock);
   display: flex;
