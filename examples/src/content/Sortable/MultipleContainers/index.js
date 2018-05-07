@@ -28,7 +28,7 @@ export default function MultipleContainers() {
 
   const containerUserElements = sortable.containers[1];
   const containerBotlements = sortable.containers[2];
-  
+
   let currentStoryChildren;
   let capacityReached;
   let lastOverContainer;
@@ -65,5 +65,11 @@ export default function MultipleContainers() {
     lastOverContainer = evt.dragEvent.overContainer;
   });
 
+  sortable.on('drag:stop', (evt) => {
+    console.log("stop");
+    if (lastOverContainer === evt.dragEvent.overContainer)
+      return;
+
+  });
   return sortable;
 }
