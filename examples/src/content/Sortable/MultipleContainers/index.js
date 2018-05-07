@@ -21,7 +21,7 @@ export default function MultipleContainers() {
     plugins: [Plugins.ResizeMirror],
   });
 
-  const containerStoryCapacity = 3;
+  const containerStoryCapacity = 10000;
   const containerLimited = sortable.containers[0];
   const containerStoryParent = containerLimited.parentNode;
   let currentMediumChildren;
