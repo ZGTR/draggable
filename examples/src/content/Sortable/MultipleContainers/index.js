@@ -25,14 +25,19 @@ export default function MultipleContainers() {
   const containerStoryCapacity = 3;
   const containerStory = sortable.containers[0];
   const containerStoryParent = containerStory.parentNode;
-  let currentMediumChildren;
+
+  const containerUserElements = sortable.containers[1];
+  const containerBotlements = sortable.containers[2];
+  
+  let currentStoryChildren;
   let capacityReached;
   let lastOverContainer;
 
   // --- Draggable events --- //
   sortable.on('drag:start', (evt) => {
-    currentMediumChildren = sortable.getDraggableElementsForContainer(containerStory).length;
-    capacityReached = currentMediumChildren === containerStoryCapacity;
+    console.log("start");
+    currentStoryChildren = sortable.getDraggableElementsForContainer(containerStory).length;
+    capacityReached = currentStoryChildren === containerStoryCapacity;
     lastOverContainer = evt.sourceContainer;
     if(!capacityReached)
       containerStoryParent.classList.toggle(Classes.startDragging, true);
@@ -41,9 +46,9 @@ export default function MultipleContainers() {
   });
 
   sortable.on('sortable:sort', (evt) => {
-    if (!capacityReached) {
+    console.log("sort");
+    if (!capacityReached) 
       return;
-    }
 
     const sourceIsCapacityContainer = evt.dragEvent.sourceContainer === containerStory;
 
@@ -53,9 +58,9 @@ export default function MultipleContainers() {
   });
 
   sortable.on('sortable:sorted', (evt) => {
-    if (lastOverContainer === evt.dragEvent.overContainer) {
+    console.log("sorted");
+    if (lastOverContainer === evt.dragEvent.overContainer)
       return;
-    }
 
     lastOverContainer = evt.dragEvent.overContainer;
   });
