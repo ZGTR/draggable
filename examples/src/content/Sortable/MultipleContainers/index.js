@@ -21,8 +21,8 @@ export default function MultipleContainers() {
     plugins: [Plugins.ResizeMirror],
   });
 
-  const containerTwoCapacity = 3;
-  const containerTwoParent = sortable.containers[1].parentNode;
+  const containerStoryCapacity = 10000;
+  const containerStoryParent = sortable.containers[0].parentNode;
   let currentMediumChildren;
   let capacityReached;
   let lastOverContainer;
@@ -30,9 +30,9 @@ export default function MultipleContainers() {
   // --- Draggable events --- //
   sortable.on('drag:start', (evt) => {
     currentMediumChildren = sortable.getDraggableElementsForContainer(sortable.containers[1]).length;
-    capacityReached = currentMediumChildren === containerTwoCapacity;
+    capacityReached = currentMediumChildren === containerStoryCapacity;
     lastOverContainer = evt.sourceContainer;
-    containerTwoParent.classList.toggle(Classes.capacity, capacityReached);
+    containerStoryParent.classList.toggle(Classes.capacity, capacityReached);
   });
 
   sortable.on('sortable:sort', (evt) => {
