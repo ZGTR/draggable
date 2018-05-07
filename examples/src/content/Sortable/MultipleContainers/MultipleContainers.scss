@@ -42,6 +42,10 @@ $grid-columns: 8;
   }
 
   .draggable--is-dragging & .draggable-container-parent--capacity {
+    color: get-color(brand, red);
+  }
+
+  .draggable--is-dragging & .draggable-container-parent--start-dragging {
     color: get-color(brand, blue);
   }
 }

@@ -2,6 +2,7 @@
 import {Sortable, Plugins} from '@shopify/draggable';
 
 const Classes = {
+  startDragging: 'draggable-container-parent--start-dragging',
   draggable: 'StackedListItem--isDraggable',
   capacity: 'draggable-container-parent--capacity',
 };
@@ -21,19 +22,22 @@ export default function MultipleContainers() {
     plugins: [Plugins.ResizeMirror],
   });
 
-  const containerStoryCapacity = 10000;
-  const containerLimited = sortable.containers[0];
-  const containerStoryParent = containerLimited.parentNode;
+  const containerStoryCapacity = 3;
+  const containerStory = sortable.containers[0];
+  const containerStoryParent = containerStory.parentNode;
   let currentMediumChildren;
   let capacityReached;
   let lastOverContainer;
 
   // --- Draggable events --- //
   sortable.on('drag:start', (evt) => {
-    currentMediumChildren = sortable.getDraggableElementsForContainer(containerLimited).length;
+    currentMediumChildren = sortable.getDraggableElementsForContainer(containerStory).length;
     capacityReached = currentMediumChildren === containerStoryCapacity;
     lastOverContainer = evt.sourceContainer;
-    containerStoryParent.classList.toggle(Classes.capacity, capacityReached);
+    if(!capacityReached)
+      containerStoryParent.classList.toggle(Classes.startDragging, true);
+    else
+      containerStoryParent.classList.toggle(Classes.capacity, capacityReached);
   });
 
   sortable.on('sortable:sort', (evt) => {
@@ -41,9 +45,9 @@ export default function MultipleContainers() {
       return;
     }
 
-    const sourceIsCapacityContainer = evt.dragEvent.sourceContainer === containerLimited;
+    const sourceIsCapacityContainer = evt.dragEvent.sourceContainer === containerStory;
 
-    if (!sourceIsCapacityContainer && evt.dragEvent.overContainer === containerLimited) {
+    if (!sourceIsCapacityContainer && evt.dragEvent.overContainer === containerStory) {
       evt.cancel();
     }
   });
