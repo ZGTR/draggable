@@ -12,12 +12,11 @@ $grid-columns: 8;
   display: grid;
   grid-gap: get-layout-length(gutter);
   grid-template-columns: 100%;
-  grid-template-areas: 'a' 'b' 'c';
+  grid-template-areas: 'b' 'c';
 
   @media screen and (min-width: get-breakpoint(desktop)) {
     grid-template-columns: repeat($grid-columns, 1fr);
     grid-template-areas:
-      'a a a a a a a a'
       'b b b b b c c c';
   }
 
@@ -27,14 +26,10 @@ $grid-columns: 8;
 
   .Container {
     &:nth-child(1) {
-      grid-area: a;
-    }
-
-    &:nth-child(2) {
       grid-area: b;
     }
 
-    &:nth-child(3) {
+    &:nth-child(2) {
       grid-area: c;
     }
   }

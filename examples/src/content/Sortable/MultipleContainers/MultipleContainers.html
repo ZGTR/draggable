@@ -2,43 +2,53 @@
 
 {% macro render(id) %}
   <section id="{{ id }}" class="{{ id }}">
-    <article id="ContainerTwo" class="StackedListWrapper StackedListWrapper--sizeMedium StackedListWrapper--hasScrollIndicator Container">
+
+<!--     <article id="ContainerOne" class="StackedListWrapper StackedListWrapper--sizeLarge StackedListWrapper--axisHorizontal Container">
       <header class="StackedListHeader">
-        <h3 class="Heading Heading--size3 Heading--colorWhite">Container two</h3>
-        <p><em>3 item capacity</em></p>
+        <h3 class="Heading Heading--size3 Heading--colorWhite">Container one</h3>
+      </header>
+
+      <ul class="StackedList">
+        {{ StackedListItem.render('zebra',    {index: 1, draggable: true}) }}
+        {{ StackedListItem.render('giraffe',  {index: 2, draggable: true}) }}
+        {{ StackedListItem.render('baboon',   {index: 3                 }) }}
+        {{ StackedListItem.render('elephant', {index: 4, draggable: true}) }}
+        {{ StackedListItem.render('leopard',  {index: 5, draggable: true}) }}
+      </ul>
+    </article> -->
+
+    <article id="ContainerStory" class="StackedListWrapper Container">
+      <header class="StackedListHeader">
+        <h3 class="Heading Heading--size3 Heading--colorWhite">The Story</h3>
       </header>
 
       <ul class="StackedList StackedList--hasScroll">
-        {{ StackedListItem.render('fluorescent grey', {index: 6, draggable: true}) }}
-        {{ StackedListItem.render('rebecca purple',   {index: 7, draggable: true}) }}
+        {{ StackedListItem.render('fluorescent grey', {index: 66, draggable: true}) }}
+        {{ StackedListItem.render('rebecca purple',   {index: 77, draggable: true}) }}
       </ul>
     </article>
 
-    <article id="ContainerThree" class="StackedListWrapper StackedListWrapper--hasScrollIndicator Container">
+    <article id="ContainerElements" class="StackedListWrapper Container">
       <header class="StackedListHeader">
         <h3 class="Heading Heading--size3 Heading--colorWhite">User Elements</h3>
       </header>
 
       <ul class="StackedList StackedList--hasScroll">
-        {{ StackedListItem.render('apple',         {index: 8,  draggable: true}) }}
-        {{ StackedListItem.render('banana',        {index: 9,  draggable: true}) }}
-        {{ StackedListItem.render('cucumber',      {index: 10, draggable: true}) }}
-        {{ StackedListItem.render('elderberry',    {index: 12, draggable: true}) }}
-        {{ StackedListItem.render('fresh thyme',   {index: 13, draggable: true}) }}
-        {{ StackedListItem.render('guava',         {index: 14, draggable: true}) }}
+        {{ StackedListItem.render('Text',         {index: 1,  draggable: true}) }}
+        {{ StackedListItem.render('Image',        {index: 2,  draggable: true}) }}
+        {{ StackedListItem.render('Audio',      {index: 3, draggable: true}) }}
+        {{ StackedListItem.render('AbstractEvent',   {index: 4, draggable: true}) }}
       </ul>
 
       <header class="StackedListHeader">
-        <h3 class="Heading Heading--size3 Heading--colorWhite">AI Elements</h3>
+        <h3 class="Heading Heading--size3 Heading--colorWhite">Bot Elements</h3>
       </header>
 
       <ul class="StackedList StackedList--hasScroll">
-        {{ StackedListItem.render('apple',         {index: 8,  draggable: true}) }}
-        {{ StackedListItem.render('banana',        {index: 9,  draggable: true}) }}
-        {{ StackedListItem.render('cucumber',      {index: 10, draggable: true}) }}
-        {{ StackedListItem.render('elderberry',    {index: 12, draggable: true}) }}
-        {{ StackedListItem.render('fresh thyme',   {index: 13, draggable: true}) }}
-        {{ StackedListItem.render('guava',         {index: 14, draggable: true}) }}
+        {{ StackedListItem.render('Text',         {index: 5,  draggable: true}) }}
+        {{ StackedListItem.render('Image',        {index: 6,  draggable: true}) }}
+        {{ StackedListItem.render('Audio',      {index: 7, draggable: true}) }}
+        {{ StackedListItem.render('AbstractEvent',    {index: 8, draggable: true}) }}
       </ul>
     </article>
   </section>
