@@ -2,20 +2,6 @@
 
 {% macro render(id) %}
   <section id="{{ id }}" class="{{ id }}">
-    <article id="ContainerOne" class="StackedListWrapper StackedListWrapper--sizeLarge StackedListWrapper--axisHorizontal Container">
-      <header class="StackedListHeader">
-        <h3 class="Heading Heading--size3 Heading--colorWhite">Container one</h3>
-      </header>
-
-      <ul class="StackedList">
-        {{ StackedListItem.render('zebra',    {index: 1, draggable: true}) }}
-        {{ StackedListItem.render('giraffe',  {index: 2, draggable: true}) }}
-        {{ StackedListItem.render('baboon',   {index: 3                 }) }}
-        {{ StackedListItem.render('elephant', {index: 4, draggable: true}) }}
-        {{ StackedListItem.render('leopard',  {index: 5, draggable: true}) }}
-      </ul>
-    </article>
-
     <article id="ContainerTwo" class="StackedListWrapper StackedListWrapper--sizeMedium StackedListWrapper--hasScrollIndicator Container">
       <header class="StackedListHeader">
         <h3 class="Heading Heading--size3 Heading--colorWhite">Container two</h3>
@@ -28,7 +14,7 @@
       </ul>
     </article>
 
-    <article id="ContainerFour" class="StackedListWrapper StackedListWrapper--hasScrollIndicator Container">
+    <article id="ContainerThree" class="StackedListWrapper StackedListWrapper--hasScrollIndicator Container">
       <header class="StackedListHeader">
         <h3 class="Heading Heading--size3 Heading--colorWhite">User Elements</h3>
       </header>
