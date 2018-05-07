@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import {Sortable, Plugins, StackedListItem} from '@shopify/draggable';
+import {Sortable, Plugins} from '@shopify/draggable';
 
 const Classes = {
   startDragging: 'draggable-container-parent--start-dragging',
@@ -21,6 +21,9 @@ export default function MultipleContainers() {
     },
     plugins: [Plugins.ResizeMirror],
   });
+
+
+  // const item = new StackedListItem.render('Image', {index: 1, draggable: true});
 
   let containerStoryCapacity = 3;
   let containerStory = sortable.containers[0];
