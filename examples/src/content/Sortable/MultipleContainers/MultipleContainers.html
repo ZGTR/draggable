@@ -34,13 +34,13 @@
       </header>
 
       <ul id="UserElementsUl" class="StackedList StackedList--hasScroll">
-        {% for item in userElementsMenuItems %}
+<!--         {% for item in userElementsMenuItems %}
           {{ StackedListItem.render(item,{draggable: true}) }}
-        {% endfor %}
-  <!--       {{ StackedListItem.render('Text',         {index: 1,  draggable: true}) }}
+        {% endfor %} -->
+        {{ StackedListItem.render('Text',         {index: 1,  draggable: true}) }}
         {{ StackedListItem.render('Image',        {index: 2,  draggable: true}) }}
         {{ StackedListItem.render('Audio',      {index: 3, draggable: true}) }}
-        {{ StackedListItem.render('AbstractEvent',   {index: 4, draggable: true}) }} -->
+        {{ StackedListItem.render('AbstractEvent',   {index: 4, draggable: true}) }}
       </ul>
 
       <header class="StackedListHeader">

@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import {Sortable, Plugins} from '@shopify/draggable';
+import {Sortable, Plugins, StackedListItem} from '@shopify/draggable';
 
 const Classes = {
   startDragging: 'draggable-container-parent--start-dragging',
@@ -22,12 +22,14 @@ export default function MultipleContainers() {
     plugins: [Plugins.ResizeMirror],
   });
 
-  const containerStoryCapacity = 3;
-  const containerStory = sortable.containers[0];
-  const containerStoryParent = containerStory.parentNode;
+  let containerStoryCapacity = 3;
+  let containerStory = sortable.containers[0];
+  let containerStoryParent = containerStory.parentNode;
 
-  const containerUserElements = sortable.containers[1];
-  const containerBotlements = sortable.containers[2];
+  let containerUserElements = sortable.containers[1];
+  let userElementsMenuItems = { 'items': ["Text", "Image", "Audio", "AbstractEvent"] };
+
+  let containerBotlements = sortable.containers[2];
 
   let currentStoryChildren;
   let capacityReached;
@@ -35,7 +37,7 @@ export default function MultipleContainers() {
 
   // --- Draggable events --- //
   sortable.on('drag:start', (evt) => {
-    console.log("start");
+    console.log("start:" + JSON.stringify(lastOverContainer));
     currentStoryChildren = sortable.getDraggableElementsForContainer(containerStory).length;
     capacityReached = currentStoryChildren === containerStoryCapacity;
     lastOverContainer = evt.sourceContainer;
@@ -66,10 +68,44 @@ export default function MultipleContainers() {
   });
 
   sortable.on('drag:stop', (evt) => {
-    console.log("stop");
-    if (lastOverContainer === evt.dragEvent.overContainer)
-      return;
+    let currentItem = evt.data.source;
+    let containerFrom = evt.data.sourceContainer;
+    let containerTo = lastOverContainer;
+
+    if (containerTo.id === 'StoryUl')
+      draggingToStoryContainer(currentItem, containerFrom, containerTo);
 
   });
+
+  var draggingToStoryContainer = function(currentItem, containerFrom, containerTo)
+  {
+    // Handling reordering of items in StoryUl
+    if (containerTo === containerFrom)
+    {
+      return;
+    }
+
+    // Set the element back to its origin
+    ensureUserElements();
+    // ensureBotElements();
+    // containerFrom.insertBefore(currentItem, containerFrom.children[0]);
+  }
+
+  var ensureUserElements = function()
+  {
+    var model = { 'items': ["Text", "Image", "Audio", "AbstractEvent"] };
+    var html = '';
+
+    while (containerUserElements.firstChild) {
+        containerUserElements.removeChild(containerUserElements.firstChild);
+    }
+
+    for (var i = 0; i < model.items.length; i++) {
+      var itemName = model.items[i];
+      var item = new StackedListItem(itemName, {index: i, draggable: true});
+      containerUserElements.appendChild(item);  
+    }
+  }
+
   return sortable;
 }
