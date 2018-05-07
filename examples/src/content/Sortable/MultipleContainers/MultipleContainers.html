@@ -22,7 +22,7 @@
         <h3 class="Heading Heading--size3 Heading--colorWhite">The Story</h3>
       </header>
 
-      <ul class="StackedList StackedList--hasScroll">
+      <ul id="StoryUl" class="StackedList StackedList--hasScroll">
         <!-- {{ StackedListItem.render('fluorescent grey', {index: 66, draggable: true}) }}
         {{ StackedListItem.render('rebecca purple',   {index: 77, draggable: true}) }} -->
       </ul>
@@ -33,18 +33,21 @@
         <h3 class="Heading Heading--size3 Heading--colorWhite">User Elements</h3>
       </header>
 
-      <ul class="StackedList StackedList--hasScroll">
-        {{ StackedListItem.render('Text',         {index: 1,  draggable: true}) }}
+      <ul id="UserElementsUl" class="StackedList StackedList--hasScroll">
+        {% for item in userElementsMenuItems %}
+          {{ StackedListItem.render(item,{draggable: true}) }}
+        {% endfor %}
+  <!--       {{ StackedListItem.render('Text',         {index: 1,  draggable: true}) }}
         {{ StackedListItem.render('Image',        {index: 2,  draggable: true}) }}
         {{ StackedListItem.render('Audio',      {index: 3, draggable: true}) }}
-        {{ StackedListItem.render('AbstractEvent',   {index: 4, draggable: true}) }}
+        {{ StackedListItem.render('AbstractEvent',   {index: 4, draggable: true}) }} -->
       </ul>
 
       <header class="StackedListHeader">
         <h3 class="Heading Heading--size3 Heading--colorWhite">Bot Elements</h3>
       </header>
 
-      <ul class="StackedList StackedList--hasScroll">
+      <ul id="BotElementsUl" class="StackedList StackedList--hasScroll">
         {{ StackedListItem.render('Text',         {index: 5,  draggable: true}) }}
         {{ StackedListItem.render('Image',        {index: 6,  draggable: true}) }}
         {{ StackedListItem.render('Audio',      {index: 7, draggable: true}) }}
