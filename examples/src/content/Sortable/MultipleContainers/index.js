@@ -21,15 +21,16 @@ export default function MultipleContainers() {
     plugins: [Plugins.ResizeMirror],
   });
 
-  const containerStoryCapacity = 10000;
-  const containerStoryParent = sortable.containers[0].parentNode;
+  const containerStoryCapacity = 3;
+  const containerLimited = sortable.containers[0];
+  const containerStoryParent = containerLimited.parentNode;
   let currentMediumChildren;
   let capacityReached;
   let lastOverContainer;
 
   // --- Draggable events --- //
   sortable.on('drag:start', (evt) => {
-    currentMediumChildren = sortable.getDraggableElementsForContainer(sortable.containers[1]).length;
+    currentMediumChildren = sortable.getDraggableElementsForContainer(containerLimited).length;
     capacityReached = currentMediumChildren === containerStoryCapacity;
     lastOverContainer = evt.sourceContainer;
     containerStoryParent.classList.toggle(Classes.capacity, capacityReached);
@@ -40,9 +41,9 @@ export default function MultipleContainers() {
       return;
     }
 
-    const sourceIsCapacityContainer = evt.dragEvent.sourceContainer === sortable.containers[1];
+    const sourceIsCapacityContainer = evt.dragEvent.sourceContainer === containerLimited;
 
-    if (!sourceIsCapacityContainer && evt.dragEvent.overContainer === sortable.containers[1]) {
+    if (!sourceIsCapacityContainer && evt.dragEvent.overContainer === containerLimited) {
       evt.cancel();
     }
   });
