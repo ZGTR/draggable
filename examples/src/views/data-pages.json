@@ -1,37 +1,8 @@
 {
   "DataPages": [
     {
-      "Draggable": [
-        "Drag events",
-        "~Restrict axis"
-      ]
-    },
-    {
-      "Droppable": [
-        "Unique dropzone",
-        "~Capacity"
-      ]
-    },
-    {
       "Sortable": [
-        "Simple list",
-        "Transformed",
-        "Multiple containers",
-        "~Nested"
-      ]
-    },
-    {
-      "Swappable": [
-        "Flexbox",
-        "Floated",
-        "Grid layout"
-      ]
-    },
-    {
-      "Plugins": [
-        "Collidable",
-        "Snappable",
-        "~Swap Animation"
+        "Multiple containers"
       ]
     }
   ]
